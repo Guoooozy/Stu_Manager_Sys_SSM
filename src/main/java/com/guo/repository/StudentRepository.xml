@@ -12,6 +12,15 @@
     </select>
 
     <update id="updataById" parameterType="com.guo.entity.Student">
-        update updataById set name=#{name},sex=#{sex},school=#{school},class=#{class},phone=#{phone} where id=#{id}
+        update student_sys.student set name=#{name},sex=#{sex},school=#{school},classs=#{class},phone=#{phone} where id=#{id}
     </update>
+
+    <insert id="addStu" parameterType="com.guo.entity.Student">
+        insert into student_sys.student (id,name,sex,school,classs,phone)
+        values (#{id},#{name},#{sex},#{school},#{classs},#{phone});
+    </insert>
+
+    <delete id="delStu" parameterType="java.lang.String">
+        delete from student_sys.student where id = #{id}
+    </delete>
 </mapper>

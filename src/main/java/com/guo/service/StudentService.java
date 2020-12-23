@@ -12,4 +12,6 @@ public interface StudentService {
     public List<Student> findAll();
     public Student selectById(String id);
     public void updataById(Student student);
+    public void addStu(Student student);
+    public void dleStu(String id);
 }

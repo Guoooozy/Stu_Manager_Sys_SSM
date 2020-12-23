@@ -19,7 +19,22 @@
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
+    <repositories>
+        <repository>
+            <id>dreamspark</id>
+            <name>Dreamspark Pulic Repository</name>
+            <url>https://maven.dreamspark.com.cn/repository/maven-releases/</url>
+        </repository>
+    </repositories>
+
   <dependencies>
+      <!-- 查重 -->
+      <dependency>
+          <groupId>cn.com.dreamspark</groupId>
+          <artifactId>duplicate-check</artifactId>
+          <version>0.4.0</version>
+      </dependency>
+
       <!-- SpringMVC -->
       <dependency>
         <groupId>org.springframework</groupId>
@@ -113,6 +128,19 @@
           <groupId>commons-fileupload</groupId>
           <artifactId>commons-fileupload</artifactId>
           <version>1.3.3</version>
+      </dependency>
+
+      <!--多文件上传-->
+      <dependency>
+          <groupId>taglibs</groupId>
+          <artifactId>standard</artifactId>
+          <version>1.1.2</version>
+      </dependency>
+      <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter</artifactId>
+          <version>RELEASE</version>
+          <scope>compile</scope>
       </dependency>
 
   </dependencies>

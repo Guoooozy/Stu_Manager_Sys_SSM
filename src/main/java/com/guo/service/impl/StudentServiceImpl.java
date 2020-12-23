@@ -31,4 +31,14 @@ public class StudentServiceImpl implements StudentService {
     public void updataById(Student student) {
         studentRepository.updataById(student);
     }
+
+    @Override
+    public void addStu(Student student) {
+        studentRepository.addStu(student);
+    }
+
+    @Override
+    public void dleStu(String id) {
+        studentRepository.delStu(id);
+    }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.guo.repository.FileRepository">
+
+    <!--查询所有文件的文件名-->
+    <select id="findAllFile" resultType="java.lang.String">
+        select * from student_sys.file
+    </select>
+
+    <!--上传新增的文件名-->
+    <insert id="addFile" parameterType="java.lang.String">
+        insert into student_sys.file (address)
+        values (#{name});
+    </insert>
+
+</mapper>

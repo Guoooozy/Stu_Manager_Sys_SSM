@@ -13,4 +13,6 @@ public interface StudentRepository {
     public List<Student> findAll();
     public Student selectById(String id);
     public void updataById(Student student);
+    public void addStu(Student student);
+    public void delStu(String id);
 }

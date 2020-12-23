@@ -2,11 +2,9 @@ package com.guo.controller;
 
 import com.guo.service.ClassService;
 import com.guo.service.PersionSourceService;
+import com.utils.persionJu;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,22 +25,19 @@ public class CourseHandler {
 
     @GetMapping("/findCSorce")
     public ModelAndView findCSorce(){
-        ModelAndView modelAndView=new ModelAndView("showCSourse","CSourse",classService.findAllCSorce());
+        ModelAndView modelAndView=new ModelAndView("Teacher/showCSourse","CSourse",classService.findAllCSorce());
         return modelAndView;
     }
 
-    @PostMapping("/PersonselectById")
+    @GetMapping("/PersonselectById")
     public ModelAndView PersionSelectById(HttpServletRequest request){
         String id= request.getParameter("id");
         ModelAndView modelAndView = new ModelAndView();
-
-        for (int i = 0; i < id.length(); i++) {
-            if(id.charAt(i)<'0'||id.charAt(i)>'9'){
-                modelAndView.setViewName("Warn");
-                return modelAndView;
-            }
+        if(!persionJu.getInstance().judgeId(id)){
+            modelAndView.setViewName("Warn");
+            return modelAndView;
         }
-        modelAndView.setViewName("showPSourse");
+        modelAndView.setViewName("Student/showPSourse");
         modelAndView.addObject("PSourse",persionSourceService.selectById(id));
         return modelAndView;
     }
