@@ -5,4 +5,13 @@
     <select id="findAll" resultType="Student">
         select * from student_sys.student
     </select>
+
+
+    <select id="selectById" resultType="Student" parameterType="java.lang.String">
+        select * from student_sys.student where id = #{id}
+    </select>
+
+    <update id="updataById" parameterType="com.guo.entity.Student">
+        update updataById set name=#{name},sex=#{sex},school=#{school},class=#{class},phone=#{phone} where id=#{id}
+    </update>
 </mapper>

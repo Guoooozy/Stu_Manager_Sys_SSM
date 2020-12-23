@@ -1,19 +1,19 @@
 package com.guo.controller;
 
+import com.guo.entity.Student;
+import com.guo.repository.StudentRepository;
 import com.guo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * @author gzy
@@ -36,6 +36,8 @@ public class StudentHandler {
 
 
 
+
+
     @PostMapping("/upload")
     public String upload(MultipartFile img, HttpServletRequest request){
         if(img.getSize()>0){
@@ -53,5 +55,31 @@ public class StudentHandler {
             }
         }
         return "index";
+    }
+
+    //登录操作
+    @PostMapping("/login")
+    public String login(Student student, Map<String,Student> map){
+        for (int i = 0; i < student.getId().length(); i++) {
+            if(student.getId().charAt(i)<'0'||student.getId().charAt(i)>'9'){
+                return "Warn";
+            }
+        }
+        Integer id = Integer.parseInt(student.getId());
+        Student s = studentService.selectById(student.getId());
+        if(!s.getName().equals(student.getName())){
+            return "Warn";
+        }
+        map.put("persion",s);
+        if(id<=5&&id>=1){
+            //管理员
+            return "Admin";
+        }else if(id<=20&&id>=6){
+            //老师
+            return "Teacher";
+        }else{
+            //学生
+            return "Student";
+        }
     }
 }

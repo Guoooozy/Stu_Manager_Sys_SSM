@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface StudentService {
     public List<Student> findAll();
+    public Student selectById(String id);
+    public void updataById(Student student);
 }

@@ -5,4 +5,9 @@
     <select id="findAll" resultType="Student">
         select * from student_sys.student
     </select>
+
+
+    <select id="selectById" resultType="Student" parameterType="java.lang.String">
+        select * from student_sys.student where id = #{id}
+    </select>
 </mapper>

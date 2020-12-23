@@ -1,7 +1,5 @@
 package com.guo.controller;
 
-import com.guo.repository.ClassSourseRepository;
-import com.guo.repository.PersionSourceRepository;
 import com.guo.service.ClassService;
 import com.guo.service.PersionSourceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -45,7 +42,6 @@ public class CourseHandler {
                 return modelAndView;
             }
         }
-
         modelAndView.setViewName("showPSourse");
         modelAndView.addObject("PSourse",persionSourceService.selectById(id));
         return modelAndView;

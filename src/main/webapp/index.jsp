@@ -11,6 +11,12 @@
 
 <html>
 <body>
+<form action="/student/login" method="post" name="Persion">
+    <input type="text" name="name">
+    <input type="text" name="id">
+    <input type="submit" value="登录">
+</form>
+
 <a href="/student/findAll">查看所有学生信息点我</a><br>
 <a href="upfile.jsp">上传作业点我</a><br>
 <a href="/course/findCSorce">查看各个班级成绩点我</a><br>
