@@ -10,8 +10,8 @@
     <!-- 整合MyBatis -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="user" value="root"></property>
-        <property name="password" value="112480"></property>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/student_sys?serverTimezone=GMT%2B8"></property>
+        <property name="password" value="gzy112480.."></property>
+        <property name="jdbcUrl" value="jdbc:mysql://49.234.72.114:3306/student_sys"></property>
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver"></property>
         <property name="initialPoolSize" value="5"></property>
         <property name="maxPoolSize" value="10"></property>

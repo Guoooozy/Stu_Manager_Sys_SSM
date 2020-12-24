@@ -7,7 +7,6 @@ import java.util.List;
  * @create 2020-12-23-20:25
  */
 public interface FileService {
-    public List<String> findAllFile();
-
-    public void addFile(String name);
+    //该路径下所有的文件名
+    public List<String> findAllFile(String path);
 }

@@ -16,9 +16,5 @@
     id<input type="text" name="id"><br>
     <input type="submit" value="登录"><br>
 </form>
-<a href="/student/findAll">查看所有学生信息点我</a><br>
-<a href="Student/upfile.jsp">上传作业点我</a><br>
-<a href="/course/findCSorce">查看各个班级成绩点我</a><br>
-<a href="Student/PFindById.jsp">查看个人成绩点我</a>
 </body>
 </html>

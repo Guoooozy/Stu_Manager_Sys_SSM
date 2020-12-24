@@ -1,10 +1,11 @@
 package com.guo.service.impl;
 
-import com.guo.repository.FileRepository;
 import com.guo.service.FileService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.lang.reflect.Field;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -14,16 +15,16 @@ import java.util.List;
 @Service
 public class FileServiceImpl implements FileService {
 
-    @Autowired
-    private FileRepository fileRepository;
-
     @Override
-    public List<String> findAllFile() {
-        return fileRepository.findAllFile();
-    }
-
-    @Override
-    public void addFile(String name) {
-        fileRepository.addFile(name);
+    public List<String> findAllFile(String path) {
+        File file = new File(path);
+        File[] list=file.listFiles();
+        List<String> fileList = new LinkedList<>();
+        for (int i = 0; i < list.length; i++) {
+            if(list[i].isFile()){
+                fileList.add(list[i].getName());
+            }
+        }
+        return fileList;
     }
 }

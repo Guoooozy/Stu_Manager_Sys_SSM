@@ -32,10 +32,9 @@ public class FileHandler {
     public String upload(MultipartFile img, HttpServletRequest request){
         if(img.getSize()>0){
             //获取保存上传文件的file路径
-            String path = "D:\\xunlei\\apache-tomcat-8.5.61\\apache-tomcat-8.5.61\\webapps\\file";
+            String path = "C:\\迅雷下载\\tomcat8\\webapps\\file";
             //获取上传的文件名
             String name = img.getOriginalFilename();
-            fileService.addFile(name);
             File file = new File(path,name);
             try {
                 img.transferTo(file);
@@ -45,14 +44,14 @@ public class FileHandler {
                 e.printStackTrace();
             }
         }
-        return "index";
+        return "/Student/Student";
     }
 
     //展示文件列表
     @GetMapping("/showFile")
     public ModelAndView showFile(ModelAndView modelAndView){
         modelAndView.setViewName("Teacher/download");
-        modelAndView.addObject("list",fileService.findAllFile());
+        modelAndView.addObject("list",fileService.findAllFile("C:\\迅雷下载\\tomcat8\\webapps\\file"));
         return modelAndView;
     }
 
@@ -62,7 +61,7 @@ public class FileHandler {
     public void download(@PathVariable("name") String name, @PathVariable("hz") String hz, HttpServletRequest request, HttpServletResponse response){
         if(name!=null){
             name=name+"."+hz;
-            String path = "D:\\xunlei\\apache-tomcat-8.5.61\\apache-tomcat-8.5.61\\webapps\\file";
+            String path = "C:\\迅雷下载\\tomcat8\\webapps\\file";
             File file = new File(path,name);
             OutputStream outputStream = null;
             if(file.exists()){
@@ -87,5 +86,34 @@ public class FileHandler {
         }
     }
 
+
+    @GetMapping("/Checkdownload/{name}.{hz}")
+    public void Checkdownload(@PathVariable("name") String name, @PathVariable("hz") String hz, HttpServletRequest request, HttpServletResponse response){
+        if(name!=null){
+            name=name+"."+hz;
+            String path = "C:\\迅雷下载\\tomcat8\\webapps\\file\\Checks";
+            File file = new File(path,name);
+            OutputStream outputStream = null;
+            if(file.exists()){
+                response.setContentType("application/forc-download");
+                response.setHeader("Content-Disposition","attachment;filename="+name);
+            }
+            try {
+                outputStream = response.getOutputStream();
+                outputStream.write(FileUtils.readFileToByteArray(file));
+                outputStream.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if(outputStream!=null){
+                    try {
+                        outputStream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
 
 }
