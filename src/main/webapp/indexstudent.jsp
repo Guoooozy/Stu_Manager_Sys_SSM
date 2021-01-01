@@ -1,19 +1,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页</title>
-    <script src="./js/jquery.min.js"></script>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <script src="./js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./css/iconfont.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <script src="./js/index.js"></script>
+    <script src="./resources/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+    <script src="./resources/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./resources/css/iconfont.css">
+    <link rel="stylesheet" href="./resources/css/index.css">
+    <script src="./resources/js/index.js"></script>
 </head>
 
 <body>
@@ -35,9 +34,9 @@
                         <li class="list-group-item"><i class="iconfont icon-shouye"></i>
                             <span class="zuo-title">学生信息</span></li>
                         <li class="list-group-item"><i class="iconfont icon-tubiao"></i>
-                            <span class="zuo-title"><a href=""> 成绩展示</a>></span></li>
+                            <span class="zuo-title"> 成绩展示</span></li>
                         <li class="list-group-item"><i class="iconfont icon-tubiao"></i>
-                            <span class="zuo-title"> 文件管理</span></li>
+                            <span class="zuo-title"><a href="Student/FileUp.jsp"> 文件查重</a></span></li>
                     </ul>
                 </div>
 
@@ -55,37 +54,65 @@
                     </div>
                 </div>
                 <!--                放画布-->
-                <div class="you-center col-sm-12" border: 1px solid #0b93d5; margin-top: 50px; >
+                <div class="you-center col-sm-12" border: 1px solid #0b93d5; margin-top: 50px;>
                     <table class="table table-hover">
 
                         <tr>
                             <td class="active">id</td>
-                            <td class="active">${persion.id}</td>
+                            <td class="active">1</td>
+                            <td class="active">2</td>
+                            <td class="active">3</td>
+                            <td class="active">4</td>
                         </tr>
                         <tr>
                             <td class="success">姓名</td>
-                            <td class="success">${persion.name}</td>
+                            <td class="success">李华</td>
+                            <td class="success">张三</td>
+                            <td class="success">李四</td>
+                            <td class="success">王五</td>
                         </tr>
                         <tr>
                             <td class="warning">性别</td>
-                            <td class="warning">${persion.sex}</td>
+                            <td class="warning">男</td>
+                            <td class="warning">女</td>
+                            <td class="warning">男</td>
+                            <td class="warning">女</td>
                         </tr>
                         <tr>
                             <td class="info">学校</td>
-                            <td class="info">${persion.school}</td>
+                            <td class="info">清华</td>
+                            <td class="info">北大</td>
+                            <td class="info">复旦</td>
+                            <td class="info">上外</td>
                         </tr>
                         <tr>
                             <td class="danger">班级</td>
-                            <td class="danger">${persion.classs}</td>
+                            <td class="danger">Java1班</td>
+                            <td class="danger">大数据1班</td>
+                            <td class="danger">大数据2班</td>
+                            <td class="danger">大数据3班</td>
                         </tr>
                         <tr>
                             <td class="info">电话</td>
-                            <td class="info">${persion.phone}</td>
+                            <td class="info">1383xxxxxx</td>
+                            <td class="info">1383xxxxxx</td>
+                            <td class="info">1383xxxxxx</td>
+                            <td class="info">1383xxxxxx</td>
+                        </tr>
+                        <tr>
+                            <td class="active">选项</td>
+                            <td class="active">删除</td>
+                            <td class="active">删除</td>
+                            <td class="active">删除</td>
+                            <td class="active">删除</td>
                         </tr>
                     </table>
                     <div class="you-top col-sm-12">
                         <div class="col-sm-5 text-center">
 
+                        </div>
+                        <div class="col-sm-1 text-right">
+                            <button type="button" class="btn btn-success">添加学生信息</button>
                         </div>
 
 
@@ -98,26 +125,44 @@
                         <tr>
                             <td class="active">id</td>
                             <td class="active">1</td>
+                            <td class="active">2</td>
+                            <td class="active">3</td>
+                            <td class="active">4</td>
                         </tr>
                         <tr>
                             <td class="success">数学</td>
                             <td class="success">98.9</td>
+                            <td class="success">97.3</td>
+                            <td class="success">96.5</td>
+                            <td class="success">85.3</td>
                         </tr>
                         <tr>
                             <td class="warning">英语</td>
                             <td class="warning">77.3</td>
+                            <td class="warning">78.3</td>
+                            <td class="warning">79.5</td>
+                            <td class="warning">80.0</td>
                         </tr>
                         <tr>
                             <td class="info">数据结构</td>
                             <td class="info">68.6</td>
+                            <td class="info">67.3</td>
+                            <td class="info">70.8</td>
+                            <td class="info">79.6</td>
                         </tr>
                         <tr>
                             <td class="danger">计算机网络</td>
                             <td class="danger">76.5</td>
+                            <td class="danger">74.3</td>
+                            <td class="danger">68.9</td>
+                            <td class="danger">90.5</td>
                         </tr>
                         <tr>
                             <td class="info">数据库</td>
                             <td class="info">67.3</td>
+                            <td class="info">79.3</td>
+                            <td class="info">76.3</td>
+                            <td class="info">70.6</td>
                         </tr>
                     </table>
                 </div>
@@ -134,19 +179,15 @@
 
                             </div>
                             <div style=" background-color: #EBEBEB;border:1px solid #000;padding: 80px;">
-                                <form action="/upload1?flag=0" method="post" enctype="multipart/form-data">
+                                <form>
                                     <div class="form-group" style="padding: 10px;">
                                         <label for="exampleInputFile">File input</label>
                                         <input type="file" id="exampleInputFile">
                                     </div>
-                                </form>
-                                <form action="/upload1?flag=1" method="post" enctype="multipart/form-data">
                                     <div class="form-group" style="padding: 10px;">
                                         <label for="exampleInputFile">File input</label>
-                                        <input type="file" id="exampleInputFile" enctype="multipart/form-data">
+                                        <input type="file" id="exampleInputFile">
                                     </div>
-                                </form>
-                                <form>
                                     <div class="checkbox" style="padding-top: 40px;margin-left: 35px;">
                                         <label>
                                         <input type="checkbox"> Check me out

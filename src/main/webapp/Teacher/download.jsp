@@ -18,5 +18,6 @@
     <a href="/File/download/${item.toString()}">${item.toString()}</a><br>
     <a href="/check/ccc/${item.toString()}">查重该文章</a><br>
 </c:forEach>
+
 </body>
 </html>

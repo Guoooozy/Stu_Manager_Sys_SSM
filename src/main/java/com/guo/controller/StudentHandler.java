@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -56,29 +58,44 @@ public class StudentHandler {
     }
 
 
+    @PostMapping("/update")
+    public ModelAndView update(Student student){
+        ModelAndView modelAndView = new ModelAndView();
+        studentService.updataById(student);
+        return modelAndView;
+    }
+
+
 
     //登录操作
     @PostMapping("/login")
-    public String login(Student student, Map<String,Student> map){
+    public ModelAndView login(Student student){
+        ModelAndView modelAndView = new ModelAndView();
         boolean b = persionJu.getInstance().judgeId(student.getId());
         if(!b){
-            return "Warn";
+            modelAndView.setViewName("Warn");
+            return modelAndView;
         }
         Integer id = Integer.parseInt(student.getId());
         Student s = studentService.selectById(student.getId());
         if(!s.getName().equals(student.getName())){
-            return "Warn";
+            modelAndView.setViewName("Warn");
+            return modelAndView;
         }
-        map.put("persion",s);
+        modelAndView.addObject("persion",s);
+        modelAndView.addObject("list",studentService.findAll());
         if(id<=5&&id>=1){
             //管理员
-            return "indexadmin";
+            modelAndView.setViewName("indexadmin");
+            return modelAndView;
         }else if(id<=20&&id>=6){
             //老师
-            return "indexteacher";
+            modelAndView.setViewName("redirect:/indexteacher.jsp");
+            return modelAndView;
         }else{
             //学生
-            return "indexstudent";
+            modelAndView.setViewName("redirect:/indexstudent.jsp");
+            return modelAndView;
         }
     }
 }

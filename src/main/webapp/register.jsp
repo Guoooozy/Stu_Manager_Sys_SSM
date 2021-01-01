@@ -1,15 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./resources/css/app.css">
+    <link rel="stylesheet" href="./resources/bootstrap/css/bootstrap.min.css">
     <title>注册页面</title>
 </head>
 
@@ -52,7 +51,7 @@
                                 <div class="form-group" style="font-size: 20px;"><button type="button" class="btn btn-block">注册</button></div>
                                 <div style="margin-bottom: 30px; background-color: #EBEBEB;"></div>
                                 <h4>
-                                    <a href="index.jsp" style="color: #888 ;  text-decoration:none; ">回到主页面</a>
+                                    <a href="indexstudent.jsp" style="color: #888 ;  text-decoration:none; ">回到主页面</a>
                                     <i class="fa"><img src="images/icon_home.png" alt="" style="width: 18px;margin-bottom:2px;"></i>
                                 </h4>
                             </form>

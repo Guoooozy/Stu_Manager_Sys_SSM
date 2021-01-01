@@ -1,17 +1,19 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <html lang="en">
 
 <head>
-    <meta charset="GBK">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./resources/css/app.css" type="text/css">
+    <link rel="stylesheet" href="./resources/bootstrap/css/bootstrap.min.css" type="text/css">
     <title>首页</title>
 </head>
 
 <body>
-    <header class="fh5co-cover" style="background: #94221b; background-image: url(images/bg_intro.png);">
+    <header class="fh5co-cover" style="background: #94221b; background-image: url(resources/images/bg_intro.png);">
         <div class="container">
             <div style="margin-bottom: 200px; background-color: #EBEBEB;"></div>
             <div class="row">

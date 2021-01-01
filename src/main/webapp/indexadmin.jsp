@@ -1,20 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首页</title>
-    <script src="./js/jquery.min.js"></script>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <script src="./js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./css/iconfont.css">
-    <link rel="stylesheet" href="./css/index.css">
-    <link href="./css/style.css" rel="stylesheet" type="text/css">
-    <script src="./js/index.js"></script>
+    <script src="./resources/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="./resources/css/bootstrap.min.css">
+    <script src="./resources/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./resources/css/iconfont.css">
+    <link rel="stylesheet" href="./resources/css/index.css">
+    <link href="./resources/css/style.css" rel="stylesheet" type="text/css">
+    <script src="./resources/js/index.js"></script>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
                         <li class="list-group-item"><i class="iconfont icon-shouye"></i>
                             <span class="zuo-title">查询信息</span></li>
                         <li class="list-group-item"><i class="iconfont icon-tubiao"></i>
-                            <span class="zuo-title"><a href="/student/addStudent">添加人员</a></span></li>
+                            <span class="zuo-title"> 作业查重和下载</span></li>
                     </ul>
                 </div>
 
@@ -60,9 +60,9 @@
                             <td height="25" align="center" valign="bottom" class="td06">
                                 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
                                     <tr>
-                                        <td width="2%" valign="middle" background="./images/bg_03.gif">&nbsp;</td>
-                                        <td width="2%" valign="middle" background="./images/bg_03.gif"><img src="./images/main_28.gif" width="9" height="9" align="absmiddle"></td>
-                                        <td height="30" valign="middle" background="./images/bg_03.gif">
+                                        <td width="2%" valign="middle" background="./resources/images/bg_03.gif">&nbsp;</td>
+                                        <td width="2%" valign="middle" background="./resources/images/bg_03.gif"><img src="./resources/images/main_28.gif" width="9" height="9" align="absmiddle"></td>
+                                        <td height="30" valign="middle" background="./resources/images/bg_03.gif">
                                             <div align="left">
                                                 <font color="#FFFFFF">查询信息</font>
                                             </div>
@@ -114,9 +114,9 @@
                         <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="table01">
                             <tr>
                                 <td colspan="8" align="right" class="td07"><img src="./images/1.gif" width="4" height="5" align="absmiddle"> 首页
-                                    <img src="./images/2.gif" width="5" height="5" align="absmiddle"> 上一页
-                                    <img src="./images/2-2.gif" width="5" height="5" align="absmiddle"> 下一页
-                                    <img src="./images/3.gif" width="6" height="5" align="absmiddle"> 末页　</td>
+                                    <img src="./resources/images/2.gif" width="5" height="5" align="absmiddle"> 上一页
+                                    <img src="./resources/images/2-2.gif" width="5" height="5" align="absmiddle"> 下一页
+                                    <img src="./resources/images/3.gif" width="6" height="5" align="absmiddle"> 末页　</td>
                             </tr>
 
                             <td class="td07" align="center"><input type="checkbox" name="checkbox" value="checkbox"></td>
@@ -127,12 +127,12 @@
                             <td class="td07">班级</td>
                             <td class="td07">电话</td>
 
-                            <td class="td07">删除</td>
 
                             <td class="td07">修改</td>
 
                             </tr>
-                                <c:forEach items="${list}" var="item">
+                            <c:forEach items="${list}" var="item">
+                                <tr>
                                     <td class="td07" align="center"><input type="checkbox" name="checkbox" value="checkbox"></td>
                                     <td class="td07">${item.id}</td>
                                     <td class="td07">${item.name}</td>
@@ -140,9 +140,39 @@
                                     <td class="td07">${item.school}</td>
                                     <td class="td07">${item.classs}</td>
                                     <td class="td07">${item.phone}</td>
-                                    <td class="td07"><a href="/student/delStudent/${item.id}">删除</a></td>
-                                    <a href="">修改</a></td>
-                                </c:forEach>
+
+                                    <td class="td07">修改</td>
+                                </tr>
+                            </c:forEach>
+                            <tr>
+                                <td class="td07" align="center"><input type="checkbox" name="checkbox" value="checkbox"></td>
+                                <td class="td07">1</td>
+                                <td class="td07">张三</td>
+                                <td class="td07">男</td>
+                                <td class="td07">清华</td>
+                                <td class="td07">Java1班</td>
+                                <td class="td07">1383xxxxxx</td>
+                                <td class="td07">修改</td>
+                            </tr>
+                            <tr>
+                                <td class="td07" align="center"><input type="checkbox" name="checkbox" value="checkbox"></td>
+                                <td class="td07">1</td>
+                                <td class="td07">张三</td>
+                                <td class="td07">男</td>
+                                <td class="td07">清华</td>
+                                <td class="td07">Java1班</td>
+                                <td class="td07">1383xxxxxx</td>
+                                <td class="td07">修改</td>
+                            </tr>
+                            <tr>
+                                <td class="td07" align="center"><input type="checkbox" name="checkbox" value="checkbox"></td>
+                                <td class="td07">1</td>
+                                <td class="td07">张三</td>
+                                <td class="td07">男</td>
+                                <td class="td07">清华</td>
+                                <td class="td07">Java1班</td>
+                                <td class="td07">1383xxxxxx</td>
+                                <td class="td07">修改</td>
                             </tr>
                         </table>
 

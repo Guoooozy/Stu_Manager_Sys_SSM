@@ -12,7 +12,6 @@ public class persionJu {
     private static persionJu INSTANCE = new persionJu();
     private persionJu() {
     }
-
     public static persionJu getInstance(){
         return INSTANCE;
     }
