@@ -1,6 +1,8 @@
 package com.guo.controller;
 
 import cn.papercheck.engine.CheckManager;
+import cn.papercheck.engine.algorithm.ClauseCheck;
+import cn.papercheck.engine.algorithm.ContinuityCheck;
 import cn.papercheck.engine.checker.CheckTask;
 import cn.papercheck.engine.pojo.LocalPaperLibrary;
 import cn.papercheck.engine.pojo.Paper;
@@ -19,9 +21,10 @@ import java.io.File;
  * @author gzy
  * @create 2020-12-24-0:08
  */
+
 @Controller
 @RequestMapping("check")
-//https://dreamspark.com.cn/blog/?id=16
+
 public class CheckHandler {
 
     @GetMapping("/ccc/{name}.{hz}")
@@ -31,7 +34,7 @@ public class CheckHandler {
         //获取机器码
         //return CheckManager.INSTANCE.getMachineCode();/*
         //设置注册码（免费获取：https://dreamspark.com.cn/blog/?id=7）
-        CheckManager.INSTANCE.setRegCode("/5xW964X/4x4pIrl5A2qubTZWIYQfZVluAHU5RMRA2+aNL+Y/3ROjGHG6hJ2W3uMxvkIQPUte7RY3RYTiw9+5XH6LuvhbyZ4lA+SQkRBXdNRsfc0GLLLLpmBWHVSUJhTVT1yZWnc6WXgL/phJUiomo7To9ybullnSAkuSBlAK7pPbXUvR6cx2KRd7FXT8H83K+WSrbfU9KYeVAphIpMQmDzr8qk39Z0XrHtDF4i2AgK556fx8ONT8j1h7qQPn8mx26pz5AYVh7l6oSt6CkJlS64iLQYUhW1Xh0R4DY6XogV2B0XbyWuyE7C7ZKErGo6uZLg6Z0Xqn6TAN8tmxmbNBCUR0utJWmrlcHM05hR+VblvbqXchN5OwGLspwBqa2naoBtnIlvuUPe0Z6uLVfifOtUYtPBi14kjN7L3OtdMVesQ2jjOe3ARz+VjLE25D/EbB2tHdUsZMcHXOmMpSAx4WqWERPABgPbUaavWIXDlKC8=");
+        CheckManager.INSTANCE.setRegCode("o7cXn3Kqtud83v2tXg1jcEBP8Pq28jUAirpqeeScVsLcVJwgGqTmT5UR2Sr1d9LLIPjBHCJSonRce28YMub2DvoZ+jjXSiEjl+5W1u6jMlNPtXEJ3DKAeOFLLagsJ7tKbObTfgtBwP4lsMKN8l8yonG2QE6LV0H8noKkgImhJFQw7pT2A41sGHT7Kd9w0i9EESr1T5ul0i1+PigbthBiElKU0HyLl8P6GNeiBrjm4/4aFADDiGoRw0lpD2Qs7UjQ69BV77OUIFj3CcrZQNmFuSo/ZKSK2cCEhu3EjiRbFhk4pBCvVx80to1y3WJE3hg+2Rnch5vvbxFhLQG8VDch7TiLG3A0O6/Pu0S0FV3JyCTtVyZDsXajeZRlFZP23H1pJW6+dRXyYQ13hDfci8z4lUP7WYRKD3mVumOjr9O84KEz+bkfRI+F2jsJ8BxrI5g7YrRa86AiyKTYe+Oo9qDzlmlx/FoqazXMXG7SvOrVjog=");
         //检查注册状态
         System.out.println(CheckManager.INSTANCE.regState());
 
@@ -40,7 +43,7 @@ public class CheckHandler {
         paperLibrary.build(); //构建比对库
 
         //读取待查重的文件（支持pdf、txt、doc、docx）
-        Paper toCheckPaper = new Paper(new File(path+"\\tests.txt")); //读取本地文件
+        Paper toCheckPaper = new Paper(new File(path+"\\"+n)); //读取本地文件
 
         //注意：待查文本和比对库中的文本如果完全相同，将会自动跳过，不进行查重比对。测试时请不要使用完全相同的两个文本进行查重。
 
@@ -49,7 +52,9 @@ public class CheckHandler {
                 .getCheckTaskBuilder() //获取查重任务构造器
                 .setLibrary(paperLibrary) //设置比对库
                 .setToCheckPaper(toCheckPaper) //设置待查Paper
-                .build(); //构建任务，返回checkTask对象
+                .addCheckCore(new ClauseCheck(0.85f))//两种不同的查重算法
+                .addCheckCore(new ContinuityCheck(13))
+                .build();//构建任务，返回checkTask对象
         checkTask.start(); //启动任务
         checkTask.join(); //等待查重结束
 

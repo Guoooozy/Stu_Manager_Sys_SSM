@@ -14,7 +14,28 @@
 </head>
 <body>
 当前用户为老师账户，您的基本信息如下：<br>
-${persion}<br>
+<thead>
+<tr class="active">
+    <th>id</th>
+    <th>名字</th>
+    <th>性别</th>
+    <th>学校</th>
+    <th>班级</th>
+    <th>电话</th>
+</tr>
+</thead>
+<br>
+<tbody>
+<tr class="success">
+    <td>${persion.id}</td>
+    <td>${persion.name}</td>
+    <td>${persion.sex}</td>
+    <td>${persion.school}</td>
+    <td>${persion.classs}</td>
+    <td>${persion.phone}</td>
+</tr>
+</tbody>
+<br>
 您可以进行的操作如下<br>
 <a href="/File/showFile">下载文件</a><br>
 <a href="/course/findCSorce">查看班级成绩</a>

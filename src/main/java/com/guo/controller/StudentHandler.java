@@ -38,7 +38,7 @@ public class StudentHandler {
     public ModelAndView addStu(Student student){
         ModelAndView modelAndView = new ModelAndView();
         studentService.addStu(student);
-        modelAndView.setViewName("Admin/showStu");
+        modelAndView.setViewName("indexadmin");
         modelAndView.addObject("list",studentService.findAll());
         return modelAndView;
     }
@@ -50,7 +50,7 @@ public class StudentHandler {
     public ModelAndView delStu(@PathVariable("id") String id){
         ModelAndView modelAndView = new ModelAndView();
         studentService.dleStu(id);
-        modelAndView.setViewName("Admin/showStu");
+        modelAndView.setViewName("indexadmin");
         modelAndView.addObject("list",studentService.findAll());
         return modelAndView;
     }
@@ -72,13 +72,13 @@ public class StudentHandler {
         map.put("persion",s);
         if(id<=5&&id>=1){
             //管理员
-            return "Admin/Admin";
+            return "indexadmin";
         }else if(id<=20&&id>=6){
             //老师
-            return "Teacher/Teacher";
+            return "indexteacher";
         }else{
             //学生
-            return "Student/Student";
+            return "indexstudent";
         }
     }
 }
